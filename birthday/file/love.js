@@ -153,8 +153,15 @@
         },
         drawText: function() {
             var ctx = this.tree.ctx, heart = this.heart;
-            var point = heart.point, color = heart.color, 
+            var point = heart.point, color = heart.color,
                 scale = heart.scale;
+
+            // Tính số ngày từ 8/3/2024 đến ngày hiện tại
+            var startDate = new Date('2024-03-09');
+            var currentDate = new Date();
+            var timeDiff = currentDate - startDate;
+            var daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+
             ctx.save();
             ctx.strokeStyle = color;
             ctx.fillStyle = color;
@@ -172,9 +179,10 @@
             ctx.fillText("Click the heart:) ", 30, -5);
 
             ctx.fillStyle = "green";
-            ctx.fillText("4 months ago today", 28, 10);
+            ctx.fillText(`${daysDiff} days ago today`, 28, 10);
             ctx.restore();
         },
+
         clear: function() {
             var ctx = this.tree.ctx, cirle = this.cirle;
             var point = cirle.point, scale = cirle.scale, radius = 26;

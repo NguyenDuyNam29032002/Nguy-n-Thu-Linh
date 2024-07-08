@@ -1,14 +1,14 @@
 
 
 // variables
-var $win = $(window);
-var clientWidth = $win.width();
-var clientHeight = $win.height();
+const $win = $(window);
+const clientWidth = $win.width();
+const clientHeight = $win.height();
 
 $(window).resize(function() {
-    var newWidth = $win.width();
-    var newHeight = $win.height();
-    if (newWidth != clientWidth && newHeight != clientHeight) {
+	const newWidth = $win.width();
+	const newHeight = $win.height();
+	if (newWidth !== clientWidth && newHeight !== clientHeight) {
         location.replace(location);
     }
 });
@@ -16,11 +16,11 @@ $(window).resize(function() {
 (function($) {
 	$.fn.typewriter = function() {
 		this.each(function() {
-			var $ele = $(this), str = $ele.html(), progress = 0;
+			let $ele = $(this), str = $ele.html(), progress = 0;
 			$ele.html('');
-			var timer = setInterval(function() {
-				var current = str.substr(progress, 1);
-				if (current == '<') {
+			const timer = setInterval(function () {
+				let current = str.substr(progress, 1);
+				if (current === '<') {
 					progress = str.indexOf('>', progress) + 1;
 				} else {
 					progress++;
@@ -56,27 +56,22 @@ function timeElapse(date){
 	// Ngày hiện tại
 	var now = new Date();
 
-// Ngày bắt đầu: 8 tháng 3 năm 3024
-	var startDate = new Date(2024, 3, 8); // Tháng 2 là tháng 3 vì tháng trong JavaScript bắt đầu từ 0
+	var startDate = new Date(2024, 2, 9); // Tháng 2 là tháng 3 vì tháng trong JavaScript bắt đầu từ 0
 
-// Tính số ngày đã trôi qua
 	var timeDiff = now - startDate;
 	var days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
 
-// Tính số giờ hiện tại
 	var hours = now.getHours();
 
-// Tính số phút hiện tại
 	var minutes = now.getMinutes();
 
-// Tạo chuỗi kết quả
 	var result = "Days <span class=\"digit\">" + days + "</span> Hours <span class=\"digit\">" + hours + "</span> Minutes <span class=\"digit\">" + minutes + "</span>";
 
 // Cập nhật HTML của phần tử #clock
-	$("#clock").html(result);
+	$("#clock").html(result).css("color", "green");
 
 
 	var text = "My world is more beautiful with you";
-	$("#message-box").html(text);
+	$("#message-box").html(text).css("color", "blue");
 
 }
